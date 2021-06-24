@@ -9,7 +9,7 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
-import ProductListCards from './components/Products/Products'
+import ProductListCards from './components/Products/products'
 
 class App extends Component {
   constructor (props) {
