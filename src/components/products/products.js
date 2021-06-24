@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-
+import store from './../../store'
+store.product = []
 const ProductListCards = () => {
   const [item, setItem] = useState({ name: '', price: '' })
   const productList = [{
@@ -14,6 +15,11 @@ const ProductListCards = () => {
     name: 'potato',
     price: '2'
   }]
+
+  useEffect(() => {
+    store.product.push(item)
+    console.log(store)
+  }, [item])
 
   // const addCart = (event) => {
   //   event.preventDefault()
@@ -32,7 +38,12 @@ const ProductListCards = () => {
 
           <p>{item.name}</p>
           <p>{item.price}</p>
-          <Button name="addCart" onClick={() => setItem({ name: product.name, price: product.price })} variant="primary">Add Cart</Button>
+          <Button
+            name="addCart"
+            onClick={() =>
+              setItem({ name: product.name, price: product.price })}
+            variant="primary">Add Cart
+          </Button>
         </Card.Body>
       </Card>
     )
