@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 const ProductListCards = () => {
+  const [item, setItem] = useState({ name: '', price: '' })
   const productList = [{
     id: 0,
     name: 'rice',
@@ -14,8 +15,6 @@ const ProductListCards = () => {
     price: '2'
   }]
 
-
-
   // const addCart = (event) => {
   //   event.preventDefault()
   //   this.setItem({ name: product.name, price: product.price })
@@ -24,14 +23,16 @@ const ProductListCards = () => {
   // }
 
   const productCards = productList.map(product => {
-    const [item, setItem] = useState({ name: '', price: '' })
     return (
       <Card style={{ width: '18rem' }} key={product.id}>
         {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>{product.price}</Card.Text>
-          <Button name="addCart" onClick={() => setItem(product.name, product.price)} variant="primary">Add Cart</Button>
+
+          <p>{item.name}</p>
+          <p>{item.price}</p>
+          <Button name="addCart" onClick={() => setItem({ name: product.name, price: product.price })} variant="primary">Add Cart</Button>
         </Card.Body>
       </Card>
     )
