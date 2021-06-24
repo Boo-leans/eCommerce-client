@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
@@ -14,18 +14,24 @@ const ProductListCards = () => {
     price: '2'
   }]
 
-  const addCart = (event) => {
-    event.preventDefault()
-  }
+
+
+  // const addCart = (event) => {
+  //   event.preventDefault()
+  //   this.setItem({ name: product.name, price: product.price })
+  //
+  //   // const product = { [event.target.name]: event.target.value }
+  // }
 
   const productCards = productList.map(product => {
+    const [item, setItem] = useState({ name: '', price: '' })
     return (
       <Card style={{ width: '18rem' }} key={product.id}>
         {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>{product.price}</Card.Text>
-          <Button onClick={this.addCart} variant="primary">Add Cart</Button>
+          <Button name="addCart" onClick={() => setItem(product.name, product.price)} variant="primary">Add Cart</Button>
         </Card.Body>
       </Card>
     )
