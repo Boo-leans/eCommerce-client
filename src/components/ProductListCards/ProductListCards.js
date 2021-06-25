@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import store from './../../store'
+// import productCreate from './../../api/shoppingCart'
 store.product = []
 const ProductListCards = () => {
   const [item, setItem] = useState({ name: '', price: '' })
@@ -19,6 +20,7 @@ const ProductListCards = () => {
   useEffect(() => {
     store.product.push(item)
     console.log(store)
+    // productCreate()
   }, [item])
 
   // const addCart = (event) => {
