@@ -20,7 +20,6 @@ const ProductListCards = () => {
   useEffect(() => {
     store.product.push(item)
     console.log(store)
-    // productCreate()
   }, [item])
 
   // const addCart = (event) => {

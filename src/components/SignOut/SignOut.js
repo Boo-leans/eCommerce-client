@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 
 import { signOut } from '../../api/auth'
 import messages from '../AutoDismissAlert/messages'
+import store from './../../store.js'
 
 class SignOut extends Component {
   componentDidMount () {
@@ -15,6 +16,10 @@ class SignOut extends Component {
         variant: 'success'
       }))
       .finally(() => history.push('/'))
+      .finally(() => {
+        store.user = null
+        console.log(store.user)
+      })
       .finally(() => clearUser())
   }
 
