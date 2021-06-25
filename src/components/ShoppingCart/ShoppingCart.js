@@ -12,6 +12,7 @@ const ShoppingCart = () => {
   //   console.log(store)
   // }, [item])
 
+  // filter out blank
   const cartCards = cartList.filter(item => item.name !== '').map((product) => {
     return (
       <Card style={{ width: '18rem' }} key={cartList.indexOf(product)}>
@@ -21,6 +22,7 @@ const ShoppingCart = () => {
           <Card.Text>{product.price}</Card.Text>
 
           <Button
+            // Set object to ''
             name="removeItem"
             // onClick={() =>
             //   setItem({ name: product.name, price: product.price })}
