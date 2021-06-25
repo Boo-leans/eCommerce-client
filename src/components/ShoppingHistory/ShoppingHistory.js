@@ -13,6 +13,7 @@ const ShoppingHistory = () => {
       .then(res => {
         store.data = res.data
         setName(store.data[0].name)
+        console.log(store.data)
         // productPrice = store.data[0].price
       })
     // .then(res => res.data.map(purchase => {
