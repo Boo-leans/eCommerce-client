@@ -1,12 +1,14 @@
 import axios from 'axios'
 import apiUrl from '../apiConfig'
 
-// export const createCart = () => {
-//   return axios({
-//     method: 'POST',
-//     url: apiUrl + '/shoppingCart'
-//   })
-// }
+export const createCart = (user) => {
+  return axios({
+    method: 'POST',
+    url: apiUrl + '/shoppingCart',
+    header: { 'Authorization': `Bearer ${user.token}` },
+    data: ''
+  })
+}
 
 // add/Update purchase history
 export const productCreate = (user, item) => {

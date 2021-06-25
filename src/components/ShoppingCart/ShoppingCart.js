@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+// import { createCart } from './../../api/shoppingCart'
+
 import store from './../../store'
 store.product = []
 const ShoppingCart = () => {
@@ -8,6 +10,7 @@ const ShoppingCart = () => {
   console.log('Current shoping cart list', cartList)
 
   // useEffect(() => {
+  //   createCart()
   //   store.product.push(item)
   //   console.log(store)
   // }, [item])
