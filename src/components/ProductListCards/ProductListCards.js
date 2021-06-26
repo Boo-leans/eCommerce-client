@@ -4,9 +4,9 @@ import Button from 'react-bootstrap/Button'
 import store from './../../store'
 // import productCreate from './../../api/shoppingCart'
 store.product = []
+store.cart = []
 const ProductListCards = () => {
   const [item, setItem] = useState({ name: '', price: '' })
-  // const [cart, setCart] = useState([])
   const productList = [{
     id: 0,
     name: 'rice',
@@ -18,33 +18,24 @@ const ProductListCards = () => {
     price: '2'
   }]
 
-  useEffect(() => {}, [item])
+  useEffect(() => {
+    if (item.name.length > 0) {
+      store.cart.push(item)
+    }
+  }, [item])
 
-  // const addCart = (event) => {
-  //   event.preventDefault()
-  //   this.setItem({ name: product.name, price: product.price })
-  //
-  //   // const product = { [event.target.name]: event.target.value }
-  // }
-
-  const productCards = productList.filter(item => item.name !== '').map(product => {
+  const productCards = productList.map(product => {
     return (
       <Card style={{ width: '18rem' }} key={product.id}>
         {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>{product.price}</Card.Text>
-
-          <p>{item.name}</p>
-          <p>{item.price}</p>
           <Button
             name="addCart"
             onClick={() => {
               setItem({ name: product.name, price: product.price })
-              // cart.push(item)
-              // setCart(...cart)
-              store.product.push(item)
-              console.log(store.product)
+              console.log('cart: ', store.cart)
             }}
             variant="primary">Add Cart
           </Button>
