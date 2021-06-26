@@ -6,6 +6,7 @@ import store from './../../store'
 store.product = []
 const ProductListCards = () => {
   const [item, setItem] = useState({ name: '', price: '' })
+  // const [cart, setCart] = useState([])
   const productList = [{
     id: 0,
     name: 'rice',
@@ -17,10 +18,7 @@ const ProductListCards = () => {
     price: '2'
   }]
 
-  useEffect(() => {
-    store.product.push(item)
-    console.log(store)
-  }, [item])
+  useEffect(() => {}, [item])
 
   // const addCart = (event) => {
   //   event.preventDefault()
@@ -29,7 +27,7 @@ const ProductListCards = () => {
   //   // const product = { [event.target.name]: event.target.value }
   // }
 
-  const productCards = productList.map(product => {
+  const productCards = productList.filter(item => item.name !== '').map(product => {
     return (
       <Card style={{ width: '18rem' }} key={product.id}>
         {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}
@@ -41,8 +39,13 @@ const ProductListCards = () => {
           <p>{item.price}</p>
           <Button
             name="addCart"
-            onClick={() =>
-              setItem({ name: product.name, price: product.price })}
+            onClick={() => {
+              setItem({ name: product.name, price: product.price })
+              // cart.push(item)
+              // setCart(...cart)
+              store.product.push(item)
+              console.log(store.product)
+            }}
             variant="primary">Add Cart
           </Button>
         </Card.Body>

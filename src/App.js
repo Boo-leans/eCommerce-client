@@ -10,6 +10,7 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import ProductListCards from './components/ProductListCards/ProductListCards'
+import ProductCreate from './components/ProductCreate/ProductCreate'
 
 import ShoppingCart from './components/ShoppingCart/ShoppingCart'
 
@@ -72,6 +73,9 @@ class App extends Component {
           )} />
           <Route exact path='/' component={ProductListCards} />
 
+          <AuthenticatedRoute user={user} path='/purchases' render={() => (
+            <ProductCreate user={user} />
+          )}/>
           <AuthenticatedRoute user={user} path='/shopping-cart' render={() => (
             <ShoppingCart msgAlert={this.msgAlert} user={user} />
           )} />

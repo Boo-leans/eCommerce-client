@@ -18,7 +18,12 @@ export const productCreate = (user, item) => {
     headers: {
       'Authorization': `Bearer ${user.token}`
     },
-    data: { item }
+    data: {
+      purchase: {
+        item: item,
+        owner: user._id
+      }
+    }
   })
 }
 

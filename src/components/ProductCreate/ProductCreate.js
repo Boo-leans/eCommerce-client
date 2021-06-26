@@ -1,23 +1,24 @@
 import React, { useState } from 'react'
-
-import products from './../products/products'
+import store from './../../store'
+import { productCreate } from './../../api/shoppingCart'
+// import products from './../products/products'
 
 const ProductCreate = (props) => {
-  const [item, setItem] = useState({ name: '', price: '' })
+  const [item, setItem] = useState('')
 
   const handleSubmit = event => {
     event.preventDefault()
-
-    productCreate(user, item)
-      .then(console.log)
-      .then(res => setItem(res.data.purchase.id))
+    setItem('banana')
+    productCreate(store.user, item)
+      .then(() => console.log('response: ', item))
       .catch(console.error)
   }
 
   return (
-    <Fragment>
-    <h1>in product create</h1>
-    </Fragment>
+    <React.Fragment>
+      <h1>in product create</h1>
+      <button onClick={handleSubmit}>Create</button>
+    </React.Fragment>
   )
 }
 
