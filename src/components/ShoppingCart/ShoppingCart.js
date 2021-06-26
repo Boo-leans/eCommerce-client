@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import store from './../../store'
@@ -7,12 +7,10 @@ store.product = []
 const ShoppingCart = () => {
   const cartList = store.product
   console.log('Current shoping cart list', cartList)
-  const [item, setItem] = useState('')
 
-  useEffect(() => {
-    productCreate(store.user, item)
-      .then(() => setItem('Potato'))
-  }, [])
+  const checkoutItems = () => {
+    productCreate(store.user, cartList)
+  }
 
   // filter out blank
   const cartCards = cartList.filter(item => item.name !== '').map((product) => {
@@ -26,8 +24,8 @@ const ShoppingCart = () => {
           <Button
             // Set object to ''
             name="removeItem"
-            onClick={() =>
-              setItem({ name: '', price: '' })}
+            // onClick={() =>
+            //   setItem({ name: '', price: '' })}
             variant="secondary">Remove Item
           </Button>
 
@@ -40,7 +38,7 @@ const ShoppingCart = () => {
     <Fragment>
       <h2>Welcome to Shopping Cart</h2>
       {cartCards}
-      <Button>Checkout</Button>
+      <Button onClick={checkoutItems}>Checkout</Button>
     </Fragment>
   )
 }
