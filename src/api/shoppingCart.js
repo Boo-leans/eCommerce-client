@@ -13,12 +13,12 @@ export const createCart = (user) => {
 // add/Update purchase history
 export const productCreate = (user, item) => {
   return axios({
-    method: 'PATCH',
+    method: 'POST',
     url: apiUrl + '/purchases',
     headers: {
       'Authorization': `Bearer ${user.token}`
     },
-    data: { products: item }
+    data: { item }
   })
 }
 
