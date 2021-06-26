@@ -3,9 +3,9 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import store from './../../store'
 import { productCreate } from './../../api/shoppingCart'
-store.product = []
+
 const ShoppingCart = () => {
-  const cartList = store.product
+  const cartList = store.cart
   console.log('Current shoping cart list', cartList)
 
   const checkoutItems = () => {
@@ -22,10 +22,7 @@ const ShoppingCart = () => {
           <Card.Text>{product.price}</Card.Text>
 
           <Button
-            // Set object to ''
             name="removeItem"
-            // onClick={() =>
-            //   setItem({ name: '', price: '' })}
             variant="secondary">Remove Item
           </Button>
 
