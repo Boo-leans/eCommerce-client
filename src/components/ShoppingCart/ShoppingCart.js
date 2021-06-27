@@ -16,7 +16,7 @@ const ShoppingCart = () => {
     productCreate(store.user, cartList)
   }
 
-  // filter out blank
+  // display items in store.cart
   const cartCards = cartList.map((product) => {
     const removeItem = (event) => {
       // event.preventDefault()
@@ -24,6 +24,7 @@ const ShoppingCart = () => {
       console.log('you clicked remove item')
       console.log('index of item, ', store.product.index)
       console.log('before splice of cart', cart)
+      // Splice cart to remove specific item
       setCart(store.cart.splice(store.product.index, 1))
       console.log('after splice of cart', cart)
     }
