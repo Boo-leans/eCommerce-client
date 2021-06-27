@@ -15,7 +15,7 @@ const ShoppingCart = () => {
   }
 
   // filter out blank
-  const cartCards = cartList.filter(item => item.name !== '').map((product) => {
+  const cartCards = cartList.map((product) => {
     return (
       <Card style={{ width: '18rem' }} key={cartList.indexOf(product)}>
         {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}
