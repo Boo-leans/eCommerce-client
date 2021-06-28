@@ -57,7 +57,6 @@ const ProductListCards = () => {
             onClick={() => {
               setItem({ name: product.name, price: product.price })
             }}
-            {/* Add primary bootstrap color to button*/}
             variant="primary">Add Cart
           </Button>
         </Card.Body>

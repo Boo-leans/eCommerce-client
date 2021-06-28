@@ -21,14 +21,12 @@ const ShoppingHistory = () => {
   const purchaseList = item.map(item => {
     return (
       <ul key={item._id}>
-        <li>
-          {item.item.map(purchase =>
-            <ul key={item.item.indexOf(purchase)}>
-              <li>{purchase.name}</li>
-              <li>{purchase.price}</li>
-            </ul>
-          )}
-        </li>
+        {item.item.map(purchase =>
+          <ul key={item.item.indexOf(purchase)}>
+            <li>{purchase.name}</li>
+            <li>{purchase.price}</li>
+          </ul>
+        )}
       </ul>
     )
   })
