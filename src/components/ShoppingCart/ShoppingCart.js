@@ -1,10 +1,11 @@
 import React, { Fragment, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 // import { createCart } from './../../api/shoppingCart'
 
 import store from './../../store'
-import { productCreate } from './../../api/shoppingCart'
+// import { productCreate } from './../../api/shoppingCart'
 
 const ShoppingCart = () => {
   const cartList = store.cart
@@ -12,11 +13,11 @@ const ShoppingCart = () => {
 
   const [cart, setCart] = useState(cartList)
 
-  const checkoutItems = () => {
-    productCreate(store.user, cartList)
-      // sets cart to [] upon checkout
-      .then(setCart(store.cart = []))
-  }
+  // const checkoutItems = () => {
+  //   productCreate(store.user, cartList)
+  //     // sets cart to [] upon checkout
+  //     .then(setCart(store.cart = []))
+  // }
 
   // display items in store.cart
   const cartCards = cartList.map((product) => {
@@ -53,7 +54,7 @@ const ShoppingCart = () => {
     <Fragment>
       <h2>Welcome to Shopping Cart</h2>
       {cartCards}
-      <Button onClick={checkoutItems}>Checkout</Button>
+      <Link to= "/take-money" className="btn btn-primary">Check Out</Link>
     </Fragment>
   )
 }
