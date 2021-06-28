@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import store from './../../store'
 import { productIndex, productRefund } from './../../api/shoppingCart'
 import Card from 'react-bootstrap/Card'
@@ -7,13 +7,20 @@ import Button from 'react-bootstrap/Button'
 const ShoppingHistory = () => {
   const [item, setItem] = useState([])
 
+  // useEffect only once
+  const calledOnce = useRef(false)
+
   useEffect(() => {
+    if (calledOnce.current) {
+      return
+    }
     productIndex(store.user)
       .then(res => {
         setItem(res.data)
         store.data = res.data
-        console.log('History of all purchases', res.data)
+        // console.log('History of all purchases', res.data)
       })
+      // .then(calledOnce.current = true)
   }, [item])
   // productIndex(store.user)
   //   .then(res => {
