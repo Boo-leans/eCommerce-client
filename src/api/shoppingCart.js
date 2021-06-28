@@ -29,8 +29,6 @@ export const productCreate = (user, item) => {
 
 // delete (refund) purchased product
 export const productRefund = (user, itemId) => {
-  console.log('In delete axios call')
-  console.log(itemId)
   return axios({
     url: apiUrl + '/purchases/' + itemId,
     method: 'DELETE',

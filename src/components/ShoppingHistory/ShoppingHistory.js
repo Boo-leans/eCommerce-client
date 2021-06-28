@@ -31,10 +31,10 @@ const ShoppingHistory = () => {
   const purchaseList = item.map(item => {
     const orderRefund = () => {
       console.log('You clicked return Order')
-      console.log(item._id)
+      console.log('This is item._id: ', item._id)
       productRefund(store.user, item._id)
       //   .then(setItem(store.item = null))
-        .then(res => console.log(res))
+        .then(res => console.log('This is res data: ', res))
     }
 
     // store.order.index = item.indexOf(item)
@@ -52,7 +52,6 @@ const ShoppingHistory = () => {
         {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}
         {item.item.map(purchase =>
           <Card.Body key={item.item.indexOf(purchase)}>
-            {console.log(item.item.indexOf(purchase))}
             <Card.Title>{purchase.name}</Card.Title>
             <Card.Text>{purchase.price}</Card.Text>
           </Card.Body>
