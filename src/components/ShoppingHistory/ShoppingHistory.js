@@ -40,13 +40,20 @@ const ShoppingHistory = () => {
     // console.log('This is item: \n', item.item)
     const removeItem = (event) => {
       // event.preventDefault()
-      store.item.index = item.indexOf(item)
+      // console.log('store.item: ', store.item)
+      // console.log('store.purchase: ', store.purchase)
+      console.log('store.data: ', store.data)
+      console.log('item._id: ', item._id)
+      console.log('index of order: ', store.data[store.data.indexOf(item)].item[event.target.value])
+      console.log('index of specific item in order:  ', event.target.value)
+      // store.order.index = store.data.indexOf(item)
+      // store.item.index = event.target.value
       console.log('you clicked remove item')
-      console.log('index of item, ', store.item.index)
-      console.log('before splice of cart', cart)
+      // console.log('index of item, ', store.item.index)
+      // console.log('before splice of cart', store.item)
       // Splice cart to remove specific item
-      setCart(store.cart.splice(store.product.index, 1))
-      console.log('after splice of cart', cart)
+      setItem(store.data[store.data.indexOf(item)].item[event.target.value].splice(event.target.value, 1))
+      console.log('after splice of cart', store.item)
     }
 
     const orderRefund = () => {
@@ -77,7 +84,11 @@ const ShoppingHistory = () => {
           <Card.Body key={item.item.indexOf(purchase)}>
             <Card.Title>{purchase.name}</Card.Title>
             <Card.Text>{purchase.price}</Card.Text>
-            <Button name="removeSingleItem" onClick={removeSingleItem} value={item.item.indexOf(purchase)}>Return</Button>
+            <Button
+              name="removeSingleItem"
+              onClick={removeItem}
+              value={item.item.indexOf(purchase)}
+              variant="secondary">Return</Button>
           </Card.Body>
         )}
         <Button
