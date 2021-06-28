@@ -46,5 +46,5 @@ for your time and attention!
 - As a signed in user, I would like to see all my past orders.
 
 ## Images
-![Wire Frames]('WireFrame.png')
-![Entity Relationship Diagram]('ERD.png')
+![Wire Frames]('./WireFrame.png')
+![Entity Relationship Diagram]('./ERD.png')
