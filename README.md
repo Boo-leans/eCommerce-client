@@ -2,9 +2,9 @@
 Our team has built an e-commerce Site where users may peruse a list of available
 items, add them to their shopping cart, and checkout with our included payment
 system. With our app, users may also view their past purchase history and if
-they are unsatisfied with their purchases, may return them and recieve a full
+they are unsatisfied with their purchases, may return them and receive a full
 refund. Items will be visible for unregistered users to preview, however they
-will need to sign-up inorder to buy our items.
+will need to sign-up in order to buy our items.
 
 This application works by combining a custom backend server and database with
 our one of a kind front end client. Our team has built this app with love and
@@ -33,7 +33,7 @@ for your time and attention!
 - Express
 
 ## List of unsolved problems to be fixed in future iterations
-- 
+-
 
 ## User Stories
 - As an unregistered user, I would like to sign up with email and password.
