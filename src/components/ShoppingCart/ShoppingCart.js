@@ -14,6 +14,7 @@ const ShoppingCart = () => {
 
   const checkoutItems = () => {
     productCreate(store.user, cartList)
+      .then(setCart(store.cart = []))
   }
 
   // display items in store.cart
