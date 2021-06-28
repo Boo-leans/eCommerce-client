@@ -9,6 +9,13 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
+// require component for the home page, a card for each product
+import ProductListCards from './components/ProductListCards/ProductListCards'
+// Add the shopping cart which will contain the items that the user wants
+// to purchase
+import ShoppingCart from './components/ShoppingCart/ShoppingCart'
+// History of items purchased by the user.
+import ShoppingHistory from './components/ShoppingHistory/ShoppingHistory.js'
 
 class App extends Component {
   constructor (props) {
@@ -64,6 +71,19 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* route to the homePage which adds a component that renders the product
+           to the browser */}
+          <Route exact path='/' component={ProductListCards} />
+          {/* Route to the shopping cart page with a list of items the user
+            intends to checkout. */}
+          <AuthenticatedRoute user={user} path='/shopping-cart' render={() => (
+            <ShoppingCart msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* Route to the shopping history page, which contains a list of
+            the user's past purchases. */}
+          <AuthenticatedRoute user={user} exact path='/shopping-history' render={() => (
+            <ShoppingHistory msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
