@@ -11,6 +11,7 @@ class SignOut extends Component {
 
     signOut(user)
       .finally(() => {
+        // empties cart on signout
         store.cart = []
         console.log('Contents of cart', store.cart)
       })
