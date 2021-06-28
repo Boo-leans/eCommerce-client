@@ -37,6 +37,18 @@ const ShoppingHistory = () => {
   // }
 
   const purchaseList = item.map(item => {
+    // console.log('This is item: \n', item.item)
+    const removeItem = (event) => {
+      // event.preventDefault()
+      store.item.index = item.indexOf(item)
+      console.log('you clicked remove item')
+      console.log('index of item, ', store.item.index)
+      console.log('before splice of cart', cart)
+      // Splice cart to remove specific item
+      setCart(store.cart.splice(store.product.index, 1))
+      console.log('after splice of cart', cart)
+    }
+
     const orderRefund = () => {
       console.log('You clicked return Order')
       console.log('This is item._id: ', item._id)
@@ -65,6 +77,7 @@ const ShoppingHistory = () => {
           <Card.Body key={item.item.indexOf(purchase)}>
             <Card.Title>{purchase.name}</Card.Title>
             <Card.Text>{purchase.price}</Card.Text>
+            <Button name="removeSingleItem" onClick={removeSingleItem} value={item.item.indexOf(purchase)}>Return</Button>
           </Card.Body>
         )}
         <Button

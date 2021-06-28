@@ -43,3 +43,16 @@ export const productIndex = (user) => {
     headers: { 'Authorization': `Bearer ${user.token}` }
   })
 }
+
+export const itemRefund = (user, itemId, itemData) => {
+  return axios({
+    method: 'PATCH',
+    url: apiUrl + '/purchases' + itemId,
+    header: { 'Authorization': `Bearer ${user.token}` },
+    data: {
+      purchase: {
+        item: itemData
+      }
+    }
+  })
+}
