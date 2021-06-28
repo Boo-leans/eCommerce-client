@@ -46,5 +46,9 @@ for your time and attention!
 - As a signed in user, I would like to see all my past orders.
 
 ## Images
-![Wire Frames](https://imgur.com/zxKaB2s)
-![Entity Relationship Diagram](https://imgur.com/ZqRv0K0)
+
+### Wireframe
+![Wireframes](https://github.com/Boo-leans/eCommerce-client/blob/main/WireFrame.png)
+
+### Entity Relationship Diagram
+![Entity Relationship Diagram](https://github.com/Boo-leans/eCommerce-client/blob/main/ERD.png)
