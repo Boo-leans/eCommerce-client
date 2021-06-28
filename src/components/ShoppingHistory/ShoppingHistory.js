@@ -44,7 +44,7 @@ const ShoppingHistory = () => {
       // console.log('store.purchase: ', store.purchase)
       console.log('store.data: ', store.data)
       console.log('item._id: ', item._id)
-      console.log('index of order: ', store.data[store.data.indexOf(item)].item[event.target.value])
+      console.log('index of order: ', store.data[store.data.indexOf(item)])
       console.log('index of specific item in order:  ', event.target.value)
       // store.order.index = store.data.indexOf(item)
       // store.item.index = event.target.value
@@ -52,8 +52,8 @@ const ShoppingHistory = () => {
       // console.log('index of item, ', store.item.index)
       // console.log('before splice of cart', store.item)
       // Splice cart to remove specific item
-      setItem(store.data[store.data.indexOf(item)].item[event.target.value].splice(event.target.value, 1))
-      console.log('after splice of cart', store.item)
+      setItem(store.data[store.data.indexOf(item)].item.splice(event.target.value, 1))
+      console.log('after splice of cart', store.data[store.data.indexOf(item)].item)
     }
 
     const orderRefund = () => {
