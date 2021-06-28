@@ -11,9 +11,10 @@ const ShoppingHistory = () => {
     productIndex(store.user)
       .then(res => {
         setItem(res.data)
+        store.data = res.data
         console.log('History of all purchases', res.data)
       })
-  }, [])
+  }, [item])
   // productIndex(store.user)
   //   .then(res => {
   //     store.data = res.data
@@ -32,9 +33,12 @@ const ShoppingHistory = () => {
     const orderRefund = () => {
       console.log('You clicked return Order')
       console.log('This is item._id: ', item._id)
+      console.log('This is store.cart: ', item)
+      // store.product.index =
       productRefund(store.user, item._id)
       //   .then(setItem(store.item = null))
         .then(res => console.log('This is res data: ', res))
+        .then(setItem(store.data))
     }
 
     // store.order.index = item.indexOf(item)
