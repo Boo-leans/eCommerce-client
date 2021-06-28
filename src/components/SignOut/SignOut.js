@@ -10,6 +10,10 @@ class SignOut extends Component {
     const { msgAlert, history, clearUser, user } = this.props
 
     signOut(user)
+      .finally(() => {
+        store.cart = []
+        console.log('Contents of cart', store.cart)
+      })
       .finally(() => msgAlert({
         heading: 'Signed Out Successfully',
         message: messages.signOutSuccess,
