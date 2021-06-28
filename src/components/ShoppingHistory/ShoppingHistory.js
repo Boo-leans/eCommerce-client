@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import store from './../../store'
-import { productIndex } from './../../api/shoppingCart'
+import { productIndex, productRefund } from './../../api/shoppingCart'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 const ShoppingHistory = () => {
   const [item, setItem] = useState([])
@@ -9,7 +11,7 @@ const ShoppingHistory = () => {
     productIndex(store.user)
       .then(res => {
         setItem(res.data)
-        console.log(item)
+        console.log('History of all purchases', res.data)
       })
   }, [])
   // productIndex(store.user)
@@ -18,16 +20,50 @@ const ShoppingHistory = () => {
   //     console.log('this is data ', store.data)
   //   })
 
+  // const orderRefund = () => {
+  //   console.log('You clicked return Order')
+  //   console.log(item._id)
+  //   productRefund(store.user, store.cart._id)
+  //   //   .then(setItem(store.item = null))
+  //     .then(res => console.log(res))
+  // }
+
   const purchaseList = item.map(item => {
+    const orderRefund = () => {
+      console.log('You clicked return Order')
+      console.log(item._id)
+      productRefund(store.user, item._id)
+      //   .then(setItem(store.item = null))
+        .then(res => console.log(res))
+    }
+
+    // store.order.index = item.indexOf(item)
     return (
-      <ul key={item._id}>
+      // <ul key={item._id}>
+      //   {item.item.map(purchase =>
+      //     <ul key={item.item.indexOf(purchase)}>
+      //       <li>{purchase.name}</li>
+      //       <li>{purchase.price}</li>
+      //     </ul>
+      //   )}
+      // </ul>
+      // maybe put in date/time of purchase
+      <Card style={{ width: '18rem' }} key={item._id}>
+        {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}
         {item.item.map(purchase =>
-          <ul key={item.item.indexOf(purchase)}>
-            <li>{purchase.name}</li>
-            <li>{purchase.price}</li>
-          </ul>
+          <Card.Body key={item.item.indexOf(purchase)}>
+            {console.log(item.item.indexOf(purchase))}
+            <Card.Title>{purchase.name}</Card.Title>
+            <Card.Text>{purchase.price}</Card.Text>
+          </Card.Body>
         )}
-      </ul>
+        <Button
+          name="removeItem"
+          onClick={orderRefund}
+          variant="secondary">Return Order
+        </Button>
+      </Card>
+
     )
   })
   return (
