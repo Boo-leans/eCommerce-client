@@ -12,10 +12,10 @@ dedication. We welcome all feedback and tips to improve and grow. Thank you
 for your time and attention!
 
 ## Team Members
-- Ryan
-- Scott
-- Moe
-- Mike
+- Ryan Salandy
+- Scott Mackey
+- Moe Yassine
+- Michael Van Le
 
 ## Links
 - [eCommerce API Repository](https://github.com/Boo-leans/eCommerce-api)
