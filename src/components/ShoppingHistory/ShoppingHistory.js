@@ -8,33 +8,21 @@ const ShoppingHistory = () => {
   const [item, setItem] = useState([])
 
   // useEffect only once
-  const calledOnce = useRef(false)
 
-  useEffect(() => {
-    if (calledOnce.current) {
-      return
-    }
+  const createIndex = () => {
     productIndex(store.user)
       .then(res => {
         setItem(res.data)
         store.data = res.data
-        // console.log('History of all purchases', res.data)
       })
-      // .then(calledOnce.current = true)
+  }
+  const calledOnce = useRef(false)
+  useEffect(() => {
+    if (calledOnce.current) {
+      return
+    }
+    createIndex()
   }, [item])
-  // productIndex(store.user)
-  //   .then(res => {
-  //     store.data = res.data
-  //     console.log('this is data ', store.data)
-  //   })
-
-  // const orderRefund = () => {
-  //   console.log('You clicked return Order')
-  //   console.log(item._id)
-  //   productRefund(store.user, store.cart._id)
-  //   //   .then(setItem(store.item = null))
-  //     .then(res => console.log(res))
-  // }
 
   const purchaseList = item.map(item => {
     const orderRefund = () => {
@@ -48,16 +36,7 @@ const ShoppingHistory = () => {
         .then(setItem(store.data))
     }
 
-    // store.order.index = item.indexOf(item)
     return (
-      // <ul key={item._id}>
-      //   {item.item.map(purchase =>
-      //     <ul key={item.item.indexOf(purchase)}>
-      //       <li>{purchase.name}</li>
-      //       <li>{purchase.price}</li>
-      //     </ul>
-      //   )}
-      // </ul>
       // maybe put in date/time of purchase
       <Card style={{ width: '18rem' }} key={item._id}>
         {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}

@@ -11,16 +11,22 @@ store.cart = []
 const ProductListCards = () => {
   // state to set the item as an object with a name and a price.
   const [item, setItem] = useState({ name: '', price: '' })
+  const [message, setMessage] = useState('')
   // These are the hardcoded products in which the user can buy an item.
   const productList = [{
     id: 0,
-    name: 'rice',
+    name: 'moldy rice',
     price: '1'
   },
   {
     id: 1,
-    name: 'potato',
+    name: 'old potato',
     price: '2'
+  },
+  {
+    id: 2,
+    name: 'rusty cucumber',
+    price: '7'
   }]
 
   // after the item component changes this function renders.
@@ -56,6 +62,10 @@ const ProductListCards = () => {
             name="addCart"
             onClick={() => {
               setItem({ name: product.name, price: product.price })
+              setMessage(`Successfuly purchased! ${product.name}`)
+              setTimeout(() => {
+                setMessage('')
+              }, 2000)
             }}
             variant="primary">Add Cart
           </Button>
@@ -67,6 +77,7 @@ const ProductListCards = () => {
   return (
     <React.Fragment>
       {productCards}
+      {message}
     </React.Fragment>
   )
 }
