@@ -47,8 +47,8 @@ export const productIndex = (user) => {
 export const itemRefund = (user, itemId, itemData) => {
   return axios({
     method: 'PATCH',
-    url: apiUrl + '/purchases' + itemId,
-    header: { 'Authorization': `Bearer ${user.token}` },
+    url: apiUrl + '/purchases/' + itemId,
+    headers: { 'Authorization': `Bearer ${user.token}` },
     data: {
       purchase: {
         item: itemData

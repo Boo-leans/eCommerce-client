@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import store from './../../store'
-import { productIndex, productRefund } from './../../api/shoppingCart'
+import { productIndex, productRefund, itemRefund } from './../../api/shoppingCart'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
@@ -68,6 +68,8 @@ const ShoppingHistory = () => {
       // setNewArr('apple')
       newArr = store.data[store.data.indexOf(item)].item
       console.log('contents of newArr', newArr)
+      itemRefund(store.user, item._id, newArr)
+        .then(res => console.log('This is the res data: ', res))
     }
 
     const orderRefund = () => {
