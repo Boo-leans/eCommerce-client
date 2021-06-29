@@ -15,40 +15,40 @@ const ProductListCards = () => {
   // These are the hardcoded products in which the user can buy an item.
   const productList = [{
     id: 0,
-    name: 'Dumplings',
-    price: '1'
+    name: 'Carrots',
+    price: 1,
+    img: img
   },
   {
     id: 1,
-    name: 'Baked potato',
-    price: '2'
+    name: 'Bread',
+    price: 2,
+    img: img1
   },
   {
     id: 2,
-    name: 'Pickleback',
-    price: '7'
+    name: 'Lettuce',
+    price: 3,
+    img: img2
   },
   {
     id: 3,
-    name: 'Tacos',
-    price: '4'
+    name: 'Spinach',
+    price: 4,
+    img: img3
   },
   {
     id: 4,
-    name: 'Cotten Candy',
-    price: '3'
+    name: 'Onions',
+    price: 1,
+    img: img4
   },
   {
     id: 5,
-    name: 'Drip coffee',
-    price: '2'
-  },
-  {
-    id: 6,
-    name: 'Apple Crumb',
-    price: '8'
-  }
-  ]
+    name: 'Zesty Peppers',
+    price: 2,
+    img: img5
+}]
 
   // after the item component changes this function renders.
   useEffect(() => {
@@ -73,8 +73,8 @@ const ProductListCards = () => {
         <Card.Body>
           {/* The follwing two tags will surround the items name and price as
             defined above and print them inside the bootstrap cards. */}
-          <Card.Title>{product.name}</Card.Title>
-          <Card.Text>{product.price}</Card.Text>
+          <Card.Title>Product: {product.name}</Card.Title>
+          <Card.Text>${product.price}</Card.Text>
           {/* This button will contain a function which will allow the
             user to add items to their shopping cart. It's name is addCart and
             it has an onCLick function which will change the state of item
