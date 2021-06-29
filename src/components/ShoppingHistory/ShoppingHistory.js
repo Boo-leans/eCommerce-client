@@ -32,46 +32,15 @@ const ShoppingHistory = () => {
     )
   } else {
     const purchaseList = item.map(item => {
-      const prevArr = store.data
       const removeItem = (event) => {
-        // event.preventDefault()
-        // console.log('store.item: ', store.item)
-        // console.log('store.purchase: ', store.purchase)
-        console.log('store.data: ', store.data)
-        console.log('store.data: ', prevArr)
-        console.log('item._id: ', item._id)
-        console.log('index of order: ', store.data[store.data.indexOf(item)])
-        console.log('index of specific item in order:  ', event.target.value)
-        // store.order.index = store.data.indexOf(item)
-        // store.item.index = event.target.value
-        console.log('you clicked remove item')
-        // console.log('index of item, ', store.item.index)
-        // console.log('before splice of cart', store.item)
-        // Splice cart to remove specific item
         store.data[store.data.indexOf(item)].item.splice(event.target.value, 1)
-        // setNewArr(store.data[store.data.indexOf(item)].item.splice(event.target.value, 1))
-        // setNewArr(store.data)
-        console.log('value of newArr: ', newArr)
-        // store.data[store.data.indexOf(item)] = store.data[store.data.indexOf(item)].item.splice(event.target.value, 1)
-        // console.log('after splice of cart', store.data[store.data.indexOf(item)])
-        // console.log('after splice of cart', store.data[store.data.indexOf(item)].item)
-        console.log('contents of store.data: ', store.data[0].item)
-        // setNewArr(store.data[0].item)
-        // setNewArr('apple')
         newArr = store.data[store.data.indexOf(item)].item
-        console.log('contents of newArr', newArr)
         itemRefund(store.user, item._id, newArr)
           .then(res => console.log('This is the res data: ', res))
       }
 
       const orderRefund = () => {
-        console.log('You clicked return Order')
-        console.log('This is item._id: ', item._id)
-        console.log('This is store.cart: ', item)
-        // store.product.index =
         productRefund(store.user, item._id)
-        //   .then(setItem(store.item = null))
-          .then(res => console.log('This is res data: ', res))
           .then(setItem(store.data))
       }
 
