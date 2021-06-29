@@ -18,9 +18,9 @@ for your time and attention!
 - Mike
 
 ## Links
-[eCommerce API Repository](https://github.com/Boo-leans/eCommerce-api)
-[Deployed eCommerce Client](https://boo-leans.github.io/eCommerce-client/)
-[Deployed eCommerce Heroku Api](https://guarded-taiga-09203.herokuapp.com)
+- [eCommerce API Repository](https://github.com/Boo-leans/eCommerce-api)
+- [Deployed eCommerce Client](https://boo-leans.github.io/eCommerce-client/)
+- [Deployed eCommerce Heroku Api](https://guarded-taiga-09203.herokuapp.com)
 
 ## List of Technologies used
 - HTML
