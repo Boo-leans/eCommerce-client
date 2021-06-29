@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react'
 import store from './../../store'
-import { productIndex, productRefund } from './../../api/shoppingCart'
+import { productIndex, productRefund, itemRefund } from './../../api/shoppingCart'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 const ShoppingHistory = () => {
   const [item, setItem] = useState([])
+  let newArr = null
 
   // useEffect only once
   const calledOnce = useRef(false)
@@ -31,6 +32,38 @@ const ShoppingHistory = () => {
     )
   } else {
     const purchaseList = item.map(item => {
+      const prevArr = store.data
+      const removeItem = (event) => {
+        // event.preventDefault()
+        // console.log('store.item: ', store.item)
+        // console.log('store.purchase: ', store.purchase)
+        console.log('store.data: ', store.data)
+        console.log('store.data: ', prevArr)
+        console.log('item._id: ', item._id)
+        console.log('index of order: ', store.data[store.data.indexOf(item)])
+        console.log('index of specific item in order:  ', event.target.value)
+        // store.order.index = store.data.indexOf(item)
+        // store.item.index = event.target.value
+        console.log('you clicked remove item')
+        // console.log('index of item, ', store.item.index)
+        // console.log('before splice of cart', store.item)
+        // Splice cart to remove specific item
+        store.data[store.data.indexOf(item)].item.splice(event.target.value, 1)
+        // setNewArr(store.data[store.data.indexOf(item)].item.splice(event.target.value, 1))
+        // setNewArr(store.data)
+        console.log('value of newArr: ', newArr)
+        // store.data[store.data.indexOf(item)] = store.data[store.data.indexOf(item)].item.splice(event.target.value, 1)
+        // console.log('after splice of cart', store.data[store.data.indexOf(item)])
+        // console.log('after splice of cart', store.data[store.data.indexOf(item)].item)
+        console.log('contents of store.data: ', store.data[0].item)
+        // setNewArr(store.data[0].item)
+        // setNewArr('apple')
+        newArr = store.data[store.data.indexOf(item)].item
+        console.log('contents of newArr', newArr)
+        itemRefund(store.user, item._id, newArr)
+          .then(res => console.log('This is the res data: ', res))
+      }
+
       const orderRefund = () => {
         console.log('You clicked return Order')
         console.log('This is item._id: ', item._id)
@@ -50,6 +83,11 @@ const ShoppingHistory = () => {
             <Card.Body key={item.item.indexOf(purchase)}>
               <Card.Title>Product: {purchase.name}</Card.Title>
               <Card.Text>${purchase.price}</Card.Text>
+              <Button
+                name="removeSingleItem"
+                onClick={removeItem}
+                value={item.item.indexOf(purchase)}
+                variant="secondary">Return</Button>
             </Card.Body>
           )}
           <Button
