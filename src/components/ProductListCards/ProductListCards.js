@@ -25,37 +25,37 @@ const ProductListCards = () => {
   const productList = [{
     id: 0,
     name: 'Carrots',
-    price: '$1',
+    price: 1,
     img: img
   },
   {
     id: 1,
     name: 'Bread',
-    price: '$2',
+    price: 2,
     img: img1
   },
   {
     id: 2,
     name: 'Lettuce',
-    price: '$3',
+    price: 3,
     img: img2
   },
   {
     id: 3,
     name: 'Spinach',
-    price: '$4',
+    price: 4,
     img: img3
   },
   {
     id: 4,
     name: 'Onions',
-    price: '$1',
+    price: 1,
     img: img4
   },
   {
     id: 5,
-    name: 'Peppers',
-    price: '$2',
+    name: 'Zesty Peppers',
+    price: 2,
     img: img5
   }]
 
@@ -82,7 +82,7 @@ const ProductListCards = () => {
         <Card.Body>
           {/* The follwing two tags will surround the items name and price as
             defined above and print them inside the bootstrap cards. */}
-          <Card.Title>Product: {product.name}</Card.Title>
+          <Card.Title>{product.name}</Card.Title>
           <Card.Text>${product.price}</Card.Text>
           {/* This button will contain a function which will allow the
             user to add items to their shopping cart. It's name is addCart and
