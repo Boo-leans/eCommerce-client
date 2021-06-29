@@ -105,7 +105,7 @@ const ProductListCards = () => {
   })
   // The code below will be printed to the screen.
   return (
-    <Container style={{ margin: '50px' }}>
+    <Container style={{ margin: '50px' }} >
       <Row>
         <React.Fragment>
           {productCards}
