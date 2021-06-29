@@ -48,8 +48,8 @@ const ShoppingHistory = () => {
           {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}
           {item.item.map(purchase =>
             <Card.Body key={item.item.indexOf(purchase)}>
-              <Card.Title>{purchase.name}</Card.Title>
-              <Card.Text>{purchase.price}</Card.Text>
+              <Card.Title>Product: {purchase.name}</Card.Title>
+              <Card.Text>${purchase.price}</Card.Text>
             </Card.Body>
           )}
           <Button
