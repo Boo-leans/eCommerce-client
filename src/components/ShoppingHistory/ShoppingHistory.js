@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button'
 
 const ShoppingHistory = () => {
   const [item, setItem] = useState([])
+  // const [newArr, setNewA
+  let newArr = null
 
   // useEffect only once
   const calledOnce = useRef(false)
@@ -38,11 +40,13 @@ const ShoppingHistory = () => {
 
   const purchaseList = item.map(item => {
     // console.log('This is item: \n', item.item)
+    const prevArr = store.data
     const removeItem = (event) => {
       // event.preventDefault()
       // console.log('store.item: ', store.item)
       // console.log('store.purchase: ', store.purchase)
       console.log('store.data: ', store.data)
+      console.log('store.data: ', prevArr)
       console.log('item._id: ', item._id)
       console.log('index of order: ', store.data[store.data.indexOf(item)])
       console.log('index of specific item in order:  ', event.target.value)
@@ -52,8 +56,18 @@ const ShoppingHistory = () => {
       // console.log('index of item, ', store.item.index)
       // console.log('before splice of cart', store.item)
       // Splice cart to remove specific item
-      setItem(store.data[store.data.indexOf(item)].item.splice(event.target.value, 1))
-      console.log('after splice of cart', store.data[store.data.indexOf(item)].item)
+      store.data[store.data.indexOf(item)].item.splice(event.target.value, 1)
+      // setNewArr(store.data[store.data.indexOf(item)].item.splice(event.target.value, 1))
+      // setNewArr(store.data)
+      console.log('value of newArr: ', newArr)
+      // store.data[store.data.indexOf(item)] = store.data[store.data.indexOf(item)].item.splice(event.target.value, 1)
+      // console.log('after splice of cart', store.data[store.data.indexOf(item)])
+      // console.log('after splice of cart', store.data[store.data.indexOf(item)].item)
+      console.log('contents of store.data: ', store.data[0].item)
+      // setNewArr(store.data[0].item)
+      // setNewArr('apple')
+      newArr = store.data[store.data.indexOf(item)].item
+      console.log('contents of newArr', newArr)
     }
 
     const orderRefund = () => {
@@ -80,6 +94,7 @@ const ShoppingHistory = () => {
       // maybe put in date/time of purchase
       <Card style={{ width: '18rem' }} key={item._id}>
         {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}
+        {/* console.log('this is item.item\'s value: ', item.item) */}
         {item.item.map(purchase =>
           <Card.Body key={item.item.indexOf(purchase)}>
             <Card.Title>{purchase.name}</Card.Title>
