@@ -4,7 +4,9 @@ import Button from 'react-bootstrap/Button'
 import store from './../../store'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Image from 'react-bootstrap/Image'
 
+import imgBanner from './img/Banner.png'
 import img from './img/img.png'
 import img1 from './img/img1.png'
 import img2 from './img/img2.png'
@@ -76,7 +78,7 @@ const ProductListCards = () => {
       // Card from bootstrap to contain the items we are mapping over. Each
       // item will have a card with a width of 18 rem. Also contains the key
       // we need to map over lists in react. The key will be the items id.
-      <Card style={{ width: '18rem', margin: '6px' }} key={product.id}>
+      <Card style={{ width: '18rem', margin: '8px' }} key={product.id}>
         <Card.Img variant='top' src={product.img} />
         <Card.Body>
           {/* The follwing two tags will surround the items name and price as
@@ -100,8 +102,9 @@ const ProductListCards = () => {
   })
   // The code below will be printed to the screen.
   return (
-    <Container style={{ margin: '50px' }}>
-      <Row>
+    <Container style={{ margin: 'auto' }} fluid>
+      <Row className="justify-content-center">
+        <Image src={imgBanner} style={{ margin: '0px 0px 75px 0px' }} fluid />
         <React.Fragment>
           {productCards}
         </React.Fragment>
