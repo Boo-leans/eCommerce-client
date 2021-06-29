@@ -15,19 +15,40 @@ const ProductListCards = () => {
   // These are the hardcoded products in which the user can buy an item.
   const productList = [{
     id: 0,
-    name: 'moldy rice',
+    name: 'Dumplings',
     price: '1'
   },
   {
     id: 1,
-    name: 'old potato',
+    name: 'Baked potato',
     price: '2'
   },
   {
     id: 2,
-    name: 'rusty cucumber',
+    name: 'Pickleback',
     price: '7'
-  }]
+  },
+  {
+    id: 3,
+    name: 'Tacos',
+    price: '4'
+  },
+  {
+    id: 4,
+    name: 'Cotten Candy',
+    price: '3'
+  },
+  {
+    id: 5,
+    name: 'Drip coffee',
+    price: '2'
+  },
+  {
+    id: 6,
+    name: 'Apple Crumb',
+    price: '8'
+  }
+  ]
 
   // after the item component changes this function renders.
   useEffect(() => {
