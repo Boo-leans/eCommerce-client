@@ -57,7 +57,7 @@ const ProductListCards = () => {
     name: 'Zesty Peppers',
     price: 2,
     img: img5
-}]
+  }]
 
   // after the item component changes this function renders.
   useEffect(() => {
@@ -105,20 +105,14 @@ const ProductListCards = () => {
   })
   // The code below will be printed to the screen.
   return (
-<<<<<<< HEAD
-    <React.Fragment>
-      {productCards}
-      {message}
-    </React.Fragment>
-=======
-    <Container style={{ margin: '50px' }}>
+    <Container style={{ margin: '50px' }} >
       <Row>
         <React.Fragment>
           {productCards}
+          {message}
         </React.Fragment>
       </Row>
     </Container>
->>>>>>> 3d952d9 (Updated styling on ProductListCards)
   )
 }
 
