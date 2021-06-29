@@ -40,7 +40,7 @@ const ShoppingCart = () => {
         <Card style={{ width: '18rem' }} key={cartList.indexOf(product)}>
           {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}
           <Card.Body>
-            <Card.Title>Product: {product.name}</Card.Title>
+            <Card.Title>{product.name}</Card.Title>
             <Card.Text>${product.price}</Card.Text>
 
             <Button

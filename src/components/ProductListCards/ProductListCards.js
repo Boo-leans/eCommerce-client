@@ -82,7 +82,7 @@ const ProductListCards = () => {
         <Card.Body>
           {/* The follwing two tags will surround the items name and price as
             defined above and print them inside the bootstrap cards. */}
-          <Card.Title>Product: {product.name}</Card.Title>
+          <Card.Title>{product.name}</Card.Title>
           <Card.Text>${product.price}</Card.Text>
           {/* This button will contain a function which will allow the
             user to add items to their shopping cart. It's name is addCart and
