@@ -1,11 +1,14 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout'
-// import store from './../../store.js'
+import { productCreate } from './../../api/shoppingCart'
+import store from './../../store.js'
 
 export default class TakeMoney extends React.Component {
   onToken = (token) => {
     console.log('In TakeMoney stripe component')
     console.log('This is the value of token: ', token)
+    productCreate(store.user, store.cart)
+      .then(store.cart = [])
     // fetch('/save-stripe-token', {
     //   method: 'POST',
     //   body: JSON.stringify(token)
