@@ -4,9 +4,7 @@ import Button from 'react-bootstrap/Button'
 import store from './../../store'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-import Image from 'react-bootstrap/Image'
 
-import imgBanner from './img/Banner.png'
 import img from './img/img.png'
 import img1 from './img/img1.png'
 import img2 from './img/img2.png'
@@ -102,9 +100,8 @@ const ProductListCards = () => {
   })
   // The code below will be printed to the screen.
   return (
-    <Container style={{ margin: 'auto' }} fluid>
+    <Container className="container-fluid no-padding" style={{ margin: 'auto' }} fluid>
       <Row className="justify-content-center">
-        <Image src={imgBanner} style={{ margin: '0px 0px 75px 0px' }} fluid />
         <React.Fragment>
           {productCards}
         </React.Fragment>

@@ -2,6 +2,8 @@ import React, { Fragment, useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 // import { createCart } from './../../api/shoppingCart'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 
 import store from './../../store'
 import { productCreate } from './../../api/shoppingCart'
@@ -32,7 +34,7 @@ const ShoppingCart = () => {
     }
 
     return (
-      <Card style={{ width: '18rem' }} key={cartList.indexOf(product)}>
+      <Card style={{ width: '18rem', margin: '8px' }} key={cartList.indexOf(product)}>
         {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
@@ -50,11 +52,14 @@ const ShoppingCart = () => {
   })
 
   return (
-    <Fragment>
-      <h2>Welcome to Shopping Cart</h2>
-      {cartCards}
-      <Button onClick={checkoutItems}>Checkout</Button>
-    </Fragment>
+    <Container style={{ margin: 'auto' }} fluid>
+      <Row className="justify-content-center">
+        <Fragment>
+          {cartCards}
+          <Button onClick={checkoutItems}>Checkout</Button>
+        </Fragment>
+      </Row>
+    </Container>
   )
 }
 
