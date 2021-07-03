@@ -1,27 +1,24 @@
-import React, { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Fragment, useState, useEffect } from 'react'
+// import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-// import { createCart } from './../../api/shoppingCart'
+import TakeMoney from './../Stripe/stripe'
 
 import store from './../../store'
 // import { productCreate } from './../../api/shoppingCart'
 
-const ShoppingCart = () => {
+const ShoppingCart = (props) => {
   const cartList = store.cart
   console.log('Current shoping cart list', cartList)
 
   const [cart, setCart] = useState(cartList)
 
-  // const checkoutItems = () => {
-  //   productCreate(store.user, cartList)
-  //     // sets cart to [] upon checkout
-  //     .then(setCart(store.cart = []))
-  // }
+  useEffect(() => {
+  }, [cart])
 
   if (cartList.length === 0) {
     return (
-      <h3>You did not add anything!</h3>
+      <h3>you did not buy anything</h3>
     )
   } else {
     // display items in store.cart
@@ -49,7 +46,6 @@ const ShoppingCart = () => {
               onClick={removeItem}
               variant="secondary">Remove Item
             </Button>
-
           </Card.Body>
         </Card>
       )
@@ -59,7 +55,7 @@ const ShoppingCart = () => {
       <Fragment>
         <h2>Welcome to Shopping Cart</h2>
         {cartCards}
-        <Link to= "/take-money" className="btn btn-primary">Check Out</Link>
+        <TakeMoney />
       </Fragment>
     )
   }

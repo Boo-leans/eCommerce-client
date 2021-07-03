@@ -10,5 +10,6 @@ export default {
 
   // Shopping messages
   shoppingCartSuccess: 'This is your shopping cart',
-  shoppingCartFailure: 'Can\'t get to shopping cart'
+  shoppingCartFailure: 'Can\'t get to shopping cart',
+  purchaseSuccess: 'Thank you for your purchase'
 }
