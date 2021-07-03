@@ -64,7 +64,7 @@ const ShoppingCart = () => {
         <Row className="justify-content-start mt-5 mb-5" xs={2} md={4} lg={6}>
           {cartCards}
         </Row>
-        <Row className="justify-content-start mt-5 mb-5" xs={2} md={4} lg={6}>
+        <Row className="justify-content-end mt-5 mb-5" xs={2} md={4} lg={6}>
           <Button style={{ width: '18rem', margin: '8px' }} onClick={checkoutItems}>Checkout</Button>
         </Row>
       </Container>
