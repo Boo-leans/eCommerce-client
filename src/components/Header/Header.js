@@ -4,10 +4,10 @@ import Navbar from 'react-bootstrap/Navbar'
 
 const authenticatedOptions = (
   <Fragment>
-    <Nav.Link href="#shopping-cart">Shopping Cart</Nav.Link>
+    <Nav.Link href="#shopping-cart">Cart</Nav.Link>
+    <Nav.Link href="#shopping-history">History</Nav.Link>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
-    <Nav.Link href="#shopping-history">Shopping History</Nav.Link>
   </Fragment>
 )
 

@@ -1,5 +1,17 @@
-@import '~bootstrap/scss/bootstrap';
+$theme-colors: (
+  "primary": #009245,
+  "danger": #E5417C,
+  "secondary": #3F57AA
+);
 
-.border {
-  border-width: 5px;
+.footer {
+  bottom: 0;
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 8px;
+  background-color: #009245;
+  color: white;
+  text-align: center;
 }
+
+@import '~bootstrap/scss/bootstrap';

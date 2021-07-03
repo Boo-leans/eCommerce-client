@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import store from './../../store'
 import { productIndex } from './../../api/shoppingCart'
 
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+
 const ShoppingHistory = () => {
   const [item, setItem] = useState([])
 
@@ -32,7 +35,11 @@ const ShoppingHistory = () => {
   })
   return (
     <React.Fragment>
-      <h3>{purchaseList}</h3>
+      <Container className="container-fluid no-padding" style={{ margin: 'auto' }} fluid>
+        <Row className="justify-content-center mt-5 mb-5" xs={2} md={4} lg={6}>
+          <h3>{purchaseList}</h3>
+        </Row>
+      </Container>
     </React.Fragment>
   )
 }

@@ -5,6 +5,13 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
+// import img from './ProductListCards/img/img.png'
+// import img1 from './ProductListCards/img/img1.png'
+// import img2 from './ProductListCards/img/img2.png'
+// import img3 from './ProductListCards/img/img3.png'
+// import img4 from './ProductListCards/img/img4.png'
+// import img5 from './ProductListCards/img/img5.png'
+
 import store from './../../store'
 import { productCreate } from './../../api/shoppingCart'
 
@@ -35,7 +42,7 @@ const ShoppingCart = () => {
 
     return (
       <Card style={{ width: '18rem', margin: '8px' }} key={cartList.indexOf(product)}>
-        {/* <Card.Img variant='top' src={product.backgroundUrl} /> */}
+        <Card.Img variant='top' src={product.img} />
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>{product.price}</Card.Text>
@@ -52,14 +59,16 @@ const ShoppingCart = () => {
   })
 
   return (
-    <Container style={{ margin: 'auto' }} fluid>
-      <Row className="justify-content-center">
-        <Fragment>
+    <Fragment>
+      <Container className="container-fluid no-padding" style={{ margin: 'auto' }} fluid>
+        <Row className="justify-content-start mt-5 mb-5" xs={2} md={4} lg={6}>
           {cartCards}
-          <Button onClick={checkoutItems}>Checkout</Button>
-        </Fragment>
-      </Row>
-    </Container>
+        </Row>
+        <Row className="justify-content-start mt-5 mb-5" xs={2} md={4} lg={6}>
+          <Button style={{ width: '18rem', margin: '8px' }} onClick={checkoutItems}>Checkout</Button>
+        </Row>
+      </Container>
+    </Fragment>
   )
 }
 

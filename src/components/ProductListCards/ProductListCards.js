@@ -4,7 +4,9 @@ import Button from 'react-bootstrap/Button'
 import store from './../../store'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Image from 'react-bootstrap/Image'
 
+import banner from './img/banner.jpg'
 import img from './img/img.png'
 import img1 from './img/img1.png'
 import img2 from './img/img2.png'
@@ -90,7 +92,7 @@ const ProductListCards = () => {
           <Button
             name="addCart"
             onClick={() => {
-              setItem({ name: product.name, price: product.price })
+              setItem({ name: product.name, price: product.price, img: product.img })
             }}
             variant="primary">Add Cart
           </Button>
@@ -100,13 +102,14 @@ const ProductListCards = () => {
   })
   // The code below will be printed to the screen.
   return (
-    <Container className="container-fluid no-padding" style={{ margin: 'auto' }} fluid>
-      <Row className="justify-content-center">
-        <React.Fragment>
+    <React.Fragment>
+      <Container className="container-fluid no-padding mt-4" style={{ margin: 'auto' }} fluid>
+        <Image src={banner} fluid />
+        <Row className="justify-content-center mt-5 mb-5" xs={2} md={4} lg={6}>
           {productCards}
-        </React.Fragment>
-      </Row>
-    </Container>
+        </Row>
+      </Container>
+    </React.Fragment>
   )
 }
 
