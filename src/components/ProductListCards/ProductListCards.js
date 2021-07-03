@@ -22,41 +22,42 @@ store.cart = []
 const ProductListCards = () => {
   // state to set the item as an object with a name and a price.
   const [item, setItem] = useState({ name: '', price: '' })
+  const [message, setMessage] = useState('')
   // These are the hardcoded products in which the user can buy an item.
   const productList = [{
     id: 0,
     name: 'Carrots',
-    price: '$1',
+    price: 1,
     img: img
   },
   {
     id: 1,
     name: 'Bread',
-    price: '$2',
+    price: 2,
     img: img1
   },
   {
     id: 2,
     name: 'Lettuce',
-    price: '$3',
+    price: 3,
     img: img2
   },
   {
     id: 3,
     name: 'Spinach',
-    price: '$4',
+    price: 4,
     img: img3
   },
   {
     id: 4,
     name: 'Onions',
-    price: '$1',
+    price: 1,
     img: img4
   },
   {
     id: 5,
-    name: 'Peppers',
-    price: '$2',
+    name: 'Cucumbers',
+    price: 2,
     img: img5
   }]
 
@@ -78,13 +79,13 @@ const ProductListCards = () => {
       // Card from bootstrap to contain the items we are mapping over. Each
       // item will have a card with a width of 18 rem. Also contains the key
       // we need to map over lists in react. The key will be the items id.
-      <Card style={{ width: '18rem', margin: '8px' }} key={product.id}>
+      <Card style={{ width: '18rem', margin: '6px' }} key={product.id}>
         <Card.Img variant='top' src={product.img} />
         <Card.Body>
           {/* The follwing two tags will surround the items name and price as
             defined above and print them inside the bootstrap cards. */}
           <Card.Title>{product.name}</Card.Title>
-          <Card.Text>{product.price}</Card.Text>
+          <Card.Text>${product.price}</Card.Text>
           {/* This button will contain a function which will allow the
             user to add items to their shopping cart. It's name is addCart and
             it has an onCLick function which will change the state of item
@@ -93,6 +94,10 @@ const ProductListCards = () => {
             name="addCart"
             onClick={() => {
               setItem({ name: product.name, price: product.price, img: product.img })
+              setMessage(`Successfuly purchased! ${product.name}`)
+              setTimeout(() => {
+                setMessage('')
+              }, 2000)
             }}
             variant="primary">Add Cart
           </Button>
@@ -107,6 +112,7 @@ const ProductListCards = () => {
         <Image src={banner} fluid />
         <Row className="justify-content-center mt-5 mb-5" xs={2} md={4} lg={6}>
           {productCards}
+          {message}
         </Row>
       </Container>
     </React.Fragment>

@@ -17,6 +17,7 @@ import ProductListCards from './components/ProductListCards/ProductListCards'
 import ShoppingCart from './components/ShoppingCart/ShoppingCart'
 // History of items purchased by the user.
 import ShoppingHistory from './components/ShoppingHistory/ShoppingHistory.js'
+import TakeMoney from './components/Stripe/stripe'
 
 class App extends Component {
   constructor (props) {
@@ -76,6 +77,9 @@ class App extends Component {
           {/* route to the homePage which adds a component that renders the product
            to the browser */}
           <Route exact path='/' component={ProductListCards} />
+          <AuthenticatedRoute user={user} path='/take-money' render={() => (
+            <TakeMoney user={user} />
+          )} />
           {/* Route to the shopping cart page with a list of items the user
             intends to checkout. */}
           <AuthenticatedRoute user={user} path='/shopping-cart' render={() => (

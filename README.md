@@ -12,15 +12,15 @@ dedication. We welcome all feedback and tips to improve and grow. Thank you
 for your time and attention!
 
 ## Team Members
-- Ryan
-- Scott
-- Moe
-- Mike
+- Ryan Salandy
+- Scott Mackey
+- Moe Yassine
+- Michael Van Le
 
 ## Links
-[eCommerce API Repository](https://github.com/Boo-leans/eCommerce-api)
-[Deployed eCommerce Client](https://boo-leans.github.io/eCommerce-client/)
-[Deployed eCommerce Heroku Api](https://guarded-taiga-09203.herokuapp.com)
+- [eCommerce API Repository](https://github.com/Boo-leans/eCommerce-api)
+- [Deployed eCommerce Client](https://boo-leans.github.io/eCommerce-client/)
+- [Deployed eCommerce Heroku Api](https://guarded-taiga-09203.herokuapp.com)
 
 ## List of Technologies used
 - HTML
@@ -33,7 +33,17 @@ for your time and attention!
 - Express
 
 ## List of unsolved problems to be fixed in future iterations
--
+- Stripe integration
+- Patch to update order (return a single item in an order)
+- Accurate messaging
+
+## Planning, process, problem-solving Strategy
+- Standup schedule: twice a day 9:05am/ 4:15pm
+  - Standup meetings would cover what we did yesterday, what we will do today, and issues we're currently facing. 
+  - Review and merge sessions following standup meeting
+- We set off on our team project with mob programming for the backend API. Once this was set and we understood our intentions, we split up into pair programming for most of our tasks. Nearing the end of the project, we had a mix of pair and solo coding to fix bugs and other issues. 
+- Tools: Github projects as our kanban board. 
+- Problem solving strategy: Going through the docs and googling was our first point of attack. If we were stuck on an issue, we would come together as a group and attempt to solve it. If this still didn't work, an issue would be put in and we would tackle the problem with assistance from our instructors. 
 
 ## User Stories
 - As an unregistered user, I would like to sign up with email and password.
@@ -46,5 +56,9 @@ for your time and attention!
 - As a signed in user, I would like to see all my past orders.
 
 ## Images
-![Wire Frames]('WireFrame.png')
-![Entity Relationship Diagram]('ERD.png')
+
+### Wireframe
+![Wireframes](https://github.com/Boo-leans/eCommerce-client/blob/main/WireFrame.png)
+
+### Entity Relationship Diagram
+![Entity Relationship Diagram](https://github.com/Boo-leans/eCommerce-client/blob/main/ERD.png)
