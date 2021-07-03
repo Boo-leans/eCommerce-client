@@ -89,7 +89,7 @@ const ProductListCards = () => {
             user to add items to their shopping cart. It's name is addCart and
             it has an onCLick function which will change the state of item
             to be whichever item the user clicked. */}
-          <Button
+          <Button className="button"
             name="addCart"
             onClick={() => {
               setItem({ name: product.name, price: product.price, img: product.img })

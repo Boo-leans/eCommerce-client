@@ -47,10 +47,10 @@ const ShoppingCart = () => {
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>{product.price}</Card.Text>
 
-          <Button
+          <Button className="button"
             name="removeItem"
             onClick={removeItem}
-            variant="secondary">Remove Item
+            variant="secondary">Remove
           </Button>
 
         </Card.Body>

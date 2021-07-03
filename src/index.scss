@@ -4,6 +4,14 @@ $theme-colors: (
   "secondary": #3F57AA
 );
 
+.button {
+  float: right;
+}
+
+ul {
+  list-style-type: none;
+}
+
 .footer {
   bottom: 0;
   width: 100%;
