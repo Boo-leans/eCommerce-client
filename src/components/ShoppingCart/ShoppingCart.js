@@ -61,7 +61,7 @@ const ShoppingCart = () => {
   return (
     <Fragment>
       <Container className="container-fluid no-padding" style={{ margin: 'auto' }} fluid>
-        <Row className="justify-content-start mt-5 mb-5" xs={2} md={4} lg={6}>
+        <Row className="justify-content-start mt-5 mb-5">
           {cartCards}
         </Row>
         <Row className="justify-content-end mt-5 mb-5" xs={2} md={4} lg={6}>
