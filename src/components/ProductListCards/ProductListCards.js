@@ -110,7 +110,7 @@ const ProductListCards = () => {
     <React.Fragment>
       <Container className="container-fluid no-padding mt-4" style={{ margin: 'auto' }} fluid>
         <Image src={banner} fluid />
-        <Row className="justify-content-center mt-5 mb-5" xs={2} md={4} lg={6}>
+        <Row className="justify-content-center mt-5 mb-5">
           {productCards}
           {message}
         </Row>
