@@ -4,6 +4,13 @@ $theme-colors: (
   "secondary": #3F57AA
 );
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:86vh;
+}
+
 .button {
   float: right;
 }
