@@ -51,7 +51,7 @@ const ShoppingCart = () => {
           <Card.Img variant='top' src={product.img} />
           <Card.Body>
             <Card.Title>{product.name}</Card.Title>
-            <Card.Text>{product.price}</Card.Text>
+            <Card.Text>${product.price}</Card.Text>
 
             <Button className="button"
               name="removeItem"
@@ -67,10 +67,10 @@ const ShoppingCart = () => {
     return (
       <Fragment>
         <Container className="container-fluid no-padding" style={{ margin: 'auto' }} fluid>
-          <Row className="justify-content-start mt-5 mb-5" xs={2} md={4} lg={6}>
+          <Row className="justify-content-start mb-4 center" xs={2} md={4} lg={6}>
             {cartCards}
           </Row>
-          <Row className="justify-content-end mt-5 mb-5" xs={2} md={4} lg={6}>
+          <Row className="justify-content-end mb-5 mt-5" xs={2} md={4} lg={6}>
             <Link to= "/take-money" className="btn btn-primary" >Check Out</Link>
           </Row>
         </Container>

@@ -9,6 +9,13 @@ html, body {
   padding: 0;
 }
 
+.center {
+  diplay: flex;
+  justify-content: center;
+  align-items: center;
+  height: 86vh;
+}
+
 .button {
   float: right;
 }
@@ -22,7 +29,7 @@ ul {
 }
 
 .footer {
-  position: fixed;
+  // position: fixed;
   bottom: 0;
   width: 100%;
   padding-top: 8px;
