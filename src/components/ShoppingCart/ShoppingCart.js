@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 // import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import TakeMoney from './../Stripe/stripe'
+import Stripe from './../Stripe/Stripe'
 
 import store from './../../store'
 // import { productCreate } from './../../api/shoppingCart'
@@ -12,13 +12,19 @@ const ShoppingCart = (props) => {
   console.log('Current shoping cart list', cartList)
 
   const [cart, setCart] = useState(cartList)
+  const [message, setMessage] = useState('Please buy something')
 
   useEffect(() => {
-  }, [cart])
+  }, [cart, message])
+
+  const purchaseSuccess = () => {
+    setCart(null)
+    setMessage('Thank you for your purchase')
+  }
 
   if (cartList.length === 0) {
     return (
-      <h3>you did not buy anything</h3>
+      <h3>{message}</h3>
     )
   } else {
     // display items in store.cart
@@ -26,12 +32,8 @@ const ShoppingCart = (props) => {
       const removeItem = (event) => {
         // event.preventDefault()
         store.product.index = cartList.indexOf(product)
-        console.log('you clicked remove item')
-        console.log('index of item, ', store.product.index)
-        console.log('before splice of cart', cart)
         // Splice cart to remove specific item
         setCart(store.cart.splice(store.product.index, 1))
-        console.log('after splice of cart', cart)
       }
 
       return (
@@ -55,7 +57,9 @@ const ShoppingCart = (props) => {
       <Fragment>
         <h2>Welcome to Shopping Cart</h2>
         {cartCards}
-        <TakeMoney />
+        <Stripe
+          purchaseSuccess={purchaseSuccess}
+        />
       </Fragment>
     )
   }
