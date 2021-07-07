@@ -60,7 +60,7 @@ class SignIn extends Component {
     const { email, password } = this.state
 
     return (
-      <div className="row center">
+      <div className="row center mb-4">
         <div className="col-sm-10 col-md-8 col-lg-6">
           <h3>Sign In</h3>
           <Form onSubmit={this.onSignIn}>

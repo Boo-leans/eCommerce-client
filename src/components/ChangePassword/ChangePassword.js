@@ -47,8 +47,8 @@ class ChangePassword extends Component {
     const { oldPassword, newPassword } = this.state
 
     return (
-      <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
+      <div className="row center mb-4">
+        <div className="col-sm-10 col-md-8 col-lg-6">
           <h3>Change Password</h3>
           <Form onSubmit={this.onChangePassword}>
             <Form.Group controlId="oldPassword">
