@@ -7,7 +7,6 @@ import messages from '../AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import store from './../../store.js'
-// import { createCart } from './../../api/shoppingCart'
 
 class SignIn extends Component {
   constructor (props) {
@@ -33,13 +32,7 @@ class SignIn extends Component {
       .then(res => {
         setUser(res.data.user)
         store.user = res.data.user
-        console.log(store)
       })
-      // .then(() => {
-      //   createCart(store.user)
-      //     .then(res => console.log(res))
-      // }
-      // )
       .then(() => msgAlert({
         heading: 'Sign In Success',
         message: messages.signInSuccess,

@@ -13,7 +13,6 @@ class SignOut extends Component {
       .finally(() => {
         // empties cart on signout
         store.cart = []
-        console.log('Contents of cart', store.cart)
       })
       .finally(() => msgAlert({
         heading: 'Signed Out Successfully',
@@ -23,7 +22,6 @@ class SignOut extends Component {
       .finally(() => history.push('/'))
       .finally(() => {
         store.user = null
-        console.log(store.user)
       })
       .finally(() => clearUser())
   }

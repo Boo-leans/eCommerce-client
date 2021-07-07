@@ -19,7 +19,6 @@ import store from './../../store'
 
 const ShoppingCart = () => {
   const cartList = store.cart
-  console.log('Current shoping cart list', cartList)
 
   const [cart, setCart] = useState(cartList)
   const [message, setMessage] = useState('Please buy something')
@@ -47,12 +46,8 @@ const ShoppingCart = () => {
       const removeItem = (event) => {
         // event.preventDefault()
         store.product.index = cartList.indexOf(product)
-        console.log('you clicked remove item')
-        console.log('index of item, ', store.product.index)
-        console.log('before splice of cart', cart)
         // Splice cart to remove specific item
         setCart(store.cart.splice(store.product.index, 1))
-        console.log('after splice of cart', cart)
       }
 
       return (

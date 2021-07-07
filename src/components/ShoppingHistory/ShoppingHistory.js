@@ -39,7 +39,6 @@ const ShoppingHistory = () => {
         store.data[store.data.indexOf(item)].item.splice(event.target.value, 1)
         newArr = store.data[store.data.indexOf(item)].item
         itemRefund(store.user, item._id, newArr)
-          .then(res => console.log('This is the res data: ', res))
       }
 
       const orderRefund = () => {
