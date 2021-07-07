@@ -1,1 +1,42 @@
+$theme-colors: (
+  "primary": #009245,
+  "danger": #E5417C,
+  "secondary": #d3d3d3
+);
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.center {
+  diplay: flex;
+  justify-content: center;
+  align-items: center;
+  height: 86vh;
+}
+
+.button {
+  float: right;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.header {
+  // position: fixed;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #009245;
+  color: white;
+  text-align: center;
+}
+
 @import '~bootstrap/scss/bootstrap';
