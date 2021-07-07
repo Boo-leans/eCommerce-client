@@ -4,7 +4,9 @@ import Button from 'react-bootstrap/Button'
 import store from './../../store'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Image from 'react-bootstrap/Image'
 
+import banner from './img/banner.jpg'
 import img from './img/img.png'
 import img1 from './img/img1.png'
 import img2 from './img/img2.png'
@@ -54,7 +56,7 @@ const ProductListCards = () => {
   },
   {
     id: 5,
-    name: 'Zesty Peppers',
+    name: 'Cucumbers',
     price: 2,
     img: img5
   }]
@@ -88,10 +90,10 @@ const ProductListCards = () => {
             user to add items to their shopping cart. It's name is addCart and
             it has an onCLick function which will change the state of item
             to be whichever item the user clicked. */}
-          <Button
+          <Button className="button"
             name="addCart"
             onClick={() => {
-              setItem({ name: product.name, price: product.price })
+              setItem({ name: product.name, price: product.price, img: product.img })
               setMessage(`Successfuly purchased! ${product.name}`)
               setTimeout(() => {
                 setMessage('')
@@ -105,14 +107,15 @@ const ProductListCards = () => {
   })
   // The code below will be printed to the screen.
   return (
-    <Container style={{ margin: '50px' }} >
-      <Row>
-        <React.Fragment>
+    <React.Fragment>
+      <Container className="container-fluid no-padding mt-4" style={{ margin: 'auto' }} fluid>
+        <Image src={banner} fluid />
+        <Row className="justify-content-center mt-5 mb-5">
           {productCards}
           {message}
-        </React.Fragment>
-      </Row>
-    </Container>
+        </Row>
+      </Container>
+    </React.Fragment>
   )
 }
 
