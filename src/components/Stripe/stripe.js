@@ -3,12 +3,13 @@ import StripeCheckout from 'react-stripe-checkout'
 import { productCreate } from './../../api/shoppingCart'
 import store from './../../store.js'
 
-export default class TakeMoney extends React.Component {
+export default class Stripe extends React.Component {
   onToken = (token) => {
     console.log('In TakeMoney stripe component')
     console.log('This is the value of token: ', token)
     productCreate(store.user, store.cart)
       .then(store.cart = [])
+      .then(this.props.purchaseSuccess)
     // fetch('/save-stripe-token', {
     //   method: 'POST',
     //   body: JSON.stringify(token)
@@ -22,7 +23,7 @@ export default class TakeMoney extends React.Component {
     // successful transaction, store it
   }
 
-  render () {
+  render (props) {
     return (
       <StripeCheckout
         token={this.onToken}

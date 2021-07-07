@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Fragment, useState, useEffect } from 'react'
+// import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 // import { createCart } from './../../api/shoppingCart'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Stripe from './../Stripe/stripe'
 
 // import img from './ProductListCards/img/img.png'
 // import img1 from './ProductListCards/img/img1.png'
@@ -21,6 +22,14 @@ const ShoppingCart = () => {
   console.log('Current shoping cart list', cartList)
 
   const [cart, setCart] = useState(cartList)
+  const [message, setMessage] = useState('Please buy something')
+
+  useEffect(() => {}, [cart, message])
+
+  const purchaseSuccess = () => {
+    setCart(null)
+    setMessage('Thank you for your purchase')
+  }
 
   // const checkoutItems = () => {
   //   productCreate(store.user, cartList)
@@ -30,7 +39,7 @@ const ShoppingCart = () => {
 
   if (cartList.length === 0) {
     return (
-      <h3>You did not add anything!</h3>
+      <h3>{message}</h3>
     )
   } else {
     // display items in store.cart
@@ -71,7 +80,9 @@ const ShoppingCart = () => {
             {cartCards}
           </Row>
           <Row className="justify-content-end mb-5 mt-5" xs={2} md={4} lg={6}>
-            <Link to= "/take-money" className="btn btn-primary" >Check Out</Link>
+            <Stripe
+              purchaseSuccess = {purchaseSuccess}
+            />
           </Row>
         </Container>
       </Fragment>
