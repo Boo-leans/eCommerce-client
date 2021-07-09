@@ -8,7 +8,7 @@ export default class Stripe extends React.Component {
     console.log('In TakeMoney stripe component')
     console.log('This is the value of token: ', token)
     productCreate(store.user, store.cart)
-      .then(store.cart = [])
+      .then(() => { store.cart = [] })
       .then(this.props.purchaseSuccess)
     // fetch('/save-stripe-token', {
     //   method: 'POST',
