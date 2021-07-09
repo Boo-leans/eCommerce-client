@@ -95,9 +95,10 @@ const ProductListCards = () => {
             onClick={() => {
               setItem({ name: product.name, price: product.price, img: product.img })
               setMessage(`Successfuly purchased! ${product.name}`)
+              // clean up function to remove. useEffect to cancel timeout
               setTimeout(() => {
                 setMessage('')
-              }, 4000)
+              }, 1000)
             }}
             variant="primary">Add Cart
           </Button>
