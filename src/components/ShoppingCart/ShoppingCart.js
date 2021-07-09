@@ -30,59 +30,50 @@ const ShoppingCart = () => {
     setMessage('Thank you for your purchase')
   }
 
-  // const checkoutItems = () => {
-  //   productCreate(store.user, cartList)
-  //     // sets cart to [] upon checkout
-  //     .then(setCart(store.cart = []))
-  // }
-
-  if (cartList.length === 0) {
-    return (
-      <h3>{message}</h3>
-    )
-  } else {
-    // display items in store.cart
-    const cartCards = cartList.map((product) => {
-      const removeItem = (event) => {
-        // event.preventDefault()
-        store.product.index = cartList.indexOf(product)
-        // Splice cart to remove specific item
-        setCart(store.cart.splice(store.product.index, 1))
-      }
-
-      return (
-        <Card style={{ width: '18rem', margin: '8px' }} key={cartList.indexOf(product)}>
-          <Card.Img variant='top' src={product.img} />
-          <Card.Body>
-            <Card.Title>{product.name}</Card.Title>
-            <Card.Text>${product.price}</Card.Text>
-
-            <Button className="button"
-              name="removeItem"
-              onClick={removeItem}
-              variant="secondary">Remove
-            </Button>
-
-          </Card.Body>
-        </Card>
-      )
-    })
+  // display items in store.cart
+  // delete line 40-44, remove accompanying braces
+  // {cartList.length === 0 ? message : cartCards}
+  // use an alert instead of an onscreen message
+  // take cartCards and remove it from the else statement. Completely remove else statement. Get rid of message so we're not replacing the Stripe component
+  const cartCards = cartList.map((product) => {
+    const removeItem = (event) => {
+      store.product.index = cartList.indexOf(product)
+      // // Splice cart to remove specific item
+      setCart(cartList.splice(store.product.index, 1))
+    }
 
     return (
-      <Fragment>
-        <Container className="container-fluid no-padding" style={{ margin: 'auto' }} fluid>
-          <Row className="justify-content-start center" xs={2} md={4} lg={6}>
-            {cartCards}
-          </Row>
-          <Row className="justify-content-end mb-5 mt-5" xs={2} md={4} lg={6}>
-            <Stripe
-              purchaseSuccess = {purchaseSuccess}
-            />
-          </Row>
-        </Container>
-      </Fragment>
+      <Card style={{ width: '18rem', margin: '8px' }} key={cartList.indexOf(product)}>
+        <Card.Img variant='top' src={product.img} />
+        <Card.Body>
+          <Card.Title>{product.name}</Card.Title>
+          <Card.Text>${product.price}</Card.Text>
+
+          <Button className="button"
+            name="removeItem"
+            onClick={removeItem}
+            variant="secondary">Remove
+          </Button>
+
+        </Card.Body>
+      </Card>
     )
-  }
+  })
+
+  return (
+    <Fragment>
+      <Container className="container-fluid no-padding" style={{ margin: 'auto' }} fluid>
+        <Row className="justify-content-start center" xs={2} md={4} lg={6}>
+          {cartList.length === 0 ? message : cartCards}
+        </Row>
+        <Row className="justify-content-end mb-5 mt-5" xs={2} md={4} lg={6}>
+          <Stripe
+            purchaseSuccess = {purchaseSuccess}
+          />
+        </Row>
+      </Container>
+    </Fragment>
+  )
 }
 
 export default ShoppingCart

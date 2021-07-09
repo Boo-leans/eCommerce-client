@@ -19,6 +19,7 @@ const ShoppingHistory = () => {
         setItem(res.data)
         store.data = res.data
         calledOnce.current = false
+        console.log(store.data)
       })
   }
 
@@ -27,7 +28,7 @@ const ShoppingHistory = () => {
       return
     }
     createIndex()
-  }, [item])
+  }, [])
 
   if (item.length === 0) {
     return (
@@ -39,11 +40,14 @@ const ShoppingHistory = () => {
         store.data[store.data.indexOf(item)].item.splice(event.target.value, 1)
         newArr = store.data[store.data.indexOf(item)].item
         itemRefund(store.user, item._id, newArr)
+          .then(res => console.log('This is the res data: ', res))
+          .then(() => createIndex())
       }
 
       const orderRefund = () => {
         productRefund(store.user, item._id)
-          .then(setItem(store.data))
+          .then(() => setItem(store.data))
+          .then(() => createIndex())
       }
 
       return (
