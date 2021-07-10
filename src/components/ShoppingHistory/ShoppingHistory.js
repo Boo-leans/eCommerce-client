@@ -19,7 +19,6 @@ const ShoppingHistory = () => {
         setItem(res.data)
         store.data = res.data
         calledOnce.current = false
-        console.log(store.data)
       })
   }
 
@@ -40,7 +39,6 @@ const ShoppingHistory = () => {
         store.data[store.data.indexOf(item)].item.splice(event.target.value, 1)
         newArr = store.data[store.data.indexOf(item)].item
         itemRefund(store.user, item._id, newArr)
-          .then(res => console.log('This is the res data: ', res))
           .then(() => createIndex())
       }
 
